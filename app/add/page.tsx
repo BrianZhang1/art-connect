@@ -1,10 +1,10 @@
 'use client';
 import { useState, useEffect, Fragment } from "react"
-import { LoadScript, Autocomplete } from "@react-google-maps/api";
+import { LoadScript, LoadScriptProps, Autocomplete } from "@react-google-maps/api";
 import { Listbox, Transition, Switch } from '@headlessui/react'
 import { ChevronUpDownIcon } from '@heroicons/react/20/solid'
 
-const libraries = ["places"];
+const libraries: LoadScriptProps['libraries'] = ["places"];
 
 export default function Example() {
     const options = [
