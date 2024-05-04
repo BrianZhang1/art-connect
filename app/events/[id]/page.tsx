@@ -8,7 +8,7 @@ export default function Page({ params }: { params: { id: number } }) {
                 <video className="h-96" controls autoPlay muted>
                     <source src="/onebucket.mp4" type="video/mp4"></source>
                 </video>
-                <div className="pl-8">
+                <div className="pl-8 w-1/2">
                     <Map />
                 </div>
             </div>
