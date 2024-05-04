@@ -32,7 +32,7 @@ export default function Map() {
                     <div className='p-2 gap-1 flex flex-col justify-center text-center'>
                         <Link 
                             className='text-blue-500 hover:underline'
-                            href={"https://localhost:3000/events"+event.id} 
+                            href={"https://localhost:3000/events/"+event.id} 
                             target="_blank" 
                             rel="noopener noreferrer"
                         >
