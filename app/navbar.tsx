@@ -18,7 +18,7 @@ export default function Navbar() {
             </div>
             <div>
                 <Link href="/add" className='px-10'>Add Event</Link>
-                <Link href="/about">Events</Link>
+                <Link href="/events/1">Events</Link>
             </div>
         </nav>
     );
