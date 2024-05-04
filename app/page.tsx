@@ -47,7 +47,7 @@ export default function Home() {
         </div>
         <Image
           src="/vision.png"
-          width={250}
+          width={350}
           height={200}
           alt="Brampton Vision"
           className='pt-5'
