@@ -1,5 +1,5 @@
 'use client';
-import Image from "next/image";
+import Map from './map';
 import React from "react";
 import Typed from "typed.js";
 
@@ -25,9 +25,11 @@ export default function Home() {
   return (
     <main className="flex flex-col items-center justify-between py-24 px-48">
       <h1 className="text-5xl font-bold">Find Real <span className="text-blue-500" ref={el}></span></h1>
-      {/* <h3 className="text-lg text-gray-500 p-10">Explore Near You</h3> */}
+      <h3 className="text-lg text-gray-500 p-10">Select an event to get started.</h3>
 
-      <div className="w-full h-96 m-24 bg-slate-400"></div>
+      <div className="w-full h-[40rem] m-12 bg-slate-400">
+        <Map />
+      </div>
 
       <div className="flex flex-row">
         <div className="w-full flex flex-col items-start pr-8">
