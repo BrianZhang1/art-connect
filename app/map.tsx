@@ -7,21 +7,21 @@ export default function Map() {
     const events = [
         {
             id: 1,
-            name: 'Dravid Singing',
+            name: 'Brampton Music Festival',
             type: 'Music',
-            coords: { lat: 43.6849, lng: -79.7583 },
+            coords: { lat: 43.68337579543226, lng: -79.75726497597383 },
         },
         {
             id: 2,
-            name: 'Brian Singing',
-            type: 'Music',
-            coords: { lat: 43.6, lng: -79.7583 },
+            name: 'Brampton Dance Showcase',
+            type: 'Dance',
+            coords: { lat: 43.71571071714909, lng: -79.7220355472601 }, // Brampton coordinates
         },
         {
             id: 3,
-            name: 'Liam Griddy',
-            type: 'Dance',
-            coords: { lat: 43.9, lng: -79.7583 },
+            name: 'Brampton Comedy Night',
+            type: 'Stand-up Comedy',
+            coords: { lat: 43.6873273107782, lng: -79.76005453006361 },
         }
     ];
 
@@ -52,7 +52,7 @@ export default function Map() {
         width: '100%',
         height: '100%'
     };
-    const [center, setCenter] = useState({ lat: 43.6849, lng: 43.6849 });
+    const [center, setCenter] = useState({ lat: 43.685025362681806, lng: -79.75943897245493 });
 
     useEffect(() => {
         if (navigator.geolocation) {
@@ -74,7 +74,7 @@ export default function Map() {
             <GoogleMap
                 mapContainerStyle={containerStyle}
                 center={center}
-                zoom={10}
+                zoom={12}
                 options={{
                     mapTypeId: 'roadmap',
                     disableDefaultUI: true,
