@@ -24,7 +24,7 @@ export default function Home() {
     };
   }, []);
   return (
-    <main className="flex flex-col items-center justify-between py-24 px-48">
+    <main className="flex flex-col items-center justify-between py-24 px-24">
       <h1 className="text-5xl font-bold">Find Real <span className="text-brampton" ref={el}></span></h1>
       <h3 className="text-lg text-gray-500 p-10">Select an event to get started.</h3>
 
