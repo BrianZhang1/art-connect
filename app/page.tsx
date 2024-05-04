@@ -2,6 +2,7 @@
 import Map from './map';
 import React from "react";
 import Typed from "typed.js";
+import Image from 'next/image';
 
 export default function Home() {
   // Create reference to store the DOM element containing the animation
@@ -23,7 +24,7 @@ export default function Home() {
     };
   }, []);
   return (
-    <main className="flex flex-col items-center justify-between py-24 px-48">
+    <main className="flex flex-col items-center justify-between py-24 px-24">
       <h1 className="text-5xl font-bold">Find Real <span className="text-brampton" ref={el}></span></h1>
       <h3 className="text-lg text-gray-500 p-10">Select an event to get started.</h3>
 
@@ -33,10 +34,24 @@ export default function Home() {
 
       <div className="flex flex-row">
         <div className="w-full flex flex-col items-start pr-8">
-          <h2 className="text-2xl font-bold py-6">About Us</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam risus ante, tincidunt quis lorem ut, feugiat mattis augue. Etiam scelerisque lectus ut neque consectetur, eget malesuada augue tempus. Duis ut nisl in nisl faucibus tincidunt eget non ante. Donec sit amet nibh nec metus bibendum placerat. Ut eu convallis velit. Nullam blandit, elit vel commodo egestas, nibh diam vestibulum massa, condimentum tincidunt arcu ligula et eros. Vestibulum sed euismod neque. Pellentesque urna diam, pulvinar in tincidunt nec, tempus quis nisi. Etiam id urna vel nisi varius eleifend. Cras sem magna, malesuada ut gravida non, fermentum vitae nisl. Praesent lacinia non ipsum nec facilisis. Aliquam eu varius tortor, vitae consequat tortor. Nulla vel fermentum libero. Etiam semper augue tortor, non ornare dui eleifend eu. Sed eu pharetra orci, ac hendrerit ipsum. Quisque nec purus in ante ornare semper.</p>
+          <h2 className="text-2xl font-bold py-6">Our Mission</h2>
+          <p className='leading-10 pb-4'>
+            In today's rapidly advancing technological landscape, we find ourselves surrounded by marvels of innovation that promise to make our lives easier, more efficient, and undoubtedly more connected. Yet, amidst the sea of likes, shares, and retweets, a quiet epidemic of loneliness has taken root, leaving many feeling isolated despite being constantly surrounded by virtual connections.
+          </p>
+          <p className='leading-10 pb-4'>
+            It is in this spirit that we propose to reclaim what it means to be truly connected. To harness the power of technology not to further isolate ourselves, but to foster genuine human connections and revitalize our communities. Starting with Brampton, we aim to reignite the flame of real human interaction, to create spaces where art, emotion, and community intertwine, bringing people together in ways that transcend the limitations of the digital world.
+          </p>
+          <p className='leading-10'>
+            Join us in our mission to bridge the gap between technology and humanity, to rediscover the beauty of genuine connection, and to build a future where art, community, and humanity thrive hand in hand.
+          </p>
         </div>
-        <div className="flex w-1/2 h-96 bg-slate-300"></div>
+        <Image
+          src="/vision.png"
+          width={350}
+          height={200}
+          alt="Brampton Vision"
+          className='pt-5'
+           />
       </div>
       
     </main>
