@@ -1,6 +1,7 @@
 'use client';
-import { useState, useEffect, Fragment } from "react"
+import { useState, useEffect, Fragment, FormEvent } from "react"
 import Link from "next/link"
+import { addEvent } from "./actions";
 import { LoadScript, LoadScriptProps, Autocomplete } from "@react-google-maps/api";
 import { Listbox, Transition, Switch } from '@headlessui/react'
 import { ChevronUpDownIcon } from '@heroicons/react/20/solid'
@@ -30,6 +31,7 @@ export default function Example() {
     const [eventType, setEventType] = useState(options[0].name);
 
     const [autocomplete, setAutocomplete] = useState(null);
+    const [position, setPosition] = useState({ lat: 0, lng: 0 });
     const [address, setAddress] = useState('');
 
     const onLoad = (autocomplete) => {
@@ -47,7 +49,8 @@ export default function Example() {
     useEffect(() => {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition((position) => {
-                fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${position.coords.latitude},${position.coords.longitude}&key=AIzaSyCjiVgmB8d95aIKjC8ueaTcxghxaUHMxeE`)
+                setPosition({ lat: position.coords.latitude, lng: position.coords.longitude })
+                fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${position.coords.latitude},${position.coords.longitude}&key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}`)
                     .then(response => response.json())
                     .then(data => {
                         if (data.results && data.results[0]) {
@@ -78,7 +81,7 @@ export default function Example() {
                     </h2>
                 </div>
                 <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                    <form className="space-y-6">
+                    <form className="space-y-6" action={addEvent}>
                         <div>
                             <label htmlFor="name" className="block text-sm font-medium leading-6 text-gray-900">
                             Name of Event
@@ -104,6 +107,7 @@ export default function Example() {
                             <Listbox 
                                 value={eventType}
                                 onChange={setEventType}
+                                name="type"
                             >
                                 <div className="relative mt-2">
                                     <Listbox.Button
@@ -145,7 +149,7 @@ export default function Example() {
                             </Listbox>
                         </div>
                         <div>
-                            <LoadScript googleMapsApiKey="AIzaSyCjiVgmB8d95aIKjC8ueaTcxghxaUHMxeE" libraries={libraries}>
+                            <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY} libraries={libraries}>
                                 <div>
                                     <label htmlFor="address" className="block text-sm font-medium leading-6 text-gray-900">
                                         Address
@@ -169,15 +173,15 @@ export default function Example() {
                                 </div>
                             </LoadScript>
                         </div>
+                        <input type="hidden" name="latitude" value={position.lat} />
+                        <input type="hidden" name="longitude" value={position.lng} />
                         <div>
-                            <Link href="/">
-                                <button
-                                    type="submit"
-                                    className="flex w-full justify-center rounded-md bg-brampton px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-brampton focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brampton"
-                                >
-                                    Post Event
-                                </button>
-                            </Link>
+                            <button
+                                type="submit"
+                                className="flex w-full justify-center rounded-md bg-brampton px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-brampton focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brampton"
+                            >
+                                Post Event
+                            </button>
                         </div>
                     </form>
                 </div>
