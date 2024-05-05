@@ -18,7 +18,7 @@ export default function Map() {
 
     return (
         <LoadScript
-          googleMapsApiKey="AIzaSyCjiVgmB8d95aIKjC8ueaTcxghxaUHMxeE"
+          googleMapsApiKey="AIzaSyBBhMIWkMXgyf-hzz_0OsJJM0egaAT-GdQ"
         >
             <GoogleMap
                 mapContainerStyle={containerStyle}
